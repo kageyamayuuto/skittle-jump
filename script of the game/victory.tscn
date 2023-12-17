@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Victory.gd" type="Script" id=1]
+[ext_resource path="res://Down Hill.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 2 )
+
+[node name="Victory" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+margin_bottom = -435.0
+custom_fonts/font = SubResource( 1 )
+text = "YOU WIN !!"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 97.0
+margin_top = 204.0
+margin_right = 865.0
+margin_bottom = 318.0
+custom_constants/separation = 10
+
+[node name="changelevel" type="Button" parent="VBoxContainer"]
+margin_right = 768.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 2 )
+text = "Select another level"
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+margin_top = 31.0
+margin_right = 768.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 2 )
+text = "Restart the game"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+margin_top = 62.0
+margin_right = 768.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+
+[node name="backtomainmenu" type="Button" parent="VBoxContainer"]
+margin_top = 93.0
+margin_right = 768.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 2 )
+text = "Back to main menu"
+
+[connection signal="pressed" from="VBoxContainer/changelevel" to="." method="_on_gotonextlevel_pressed"]
+[connection signal="pressed" from="VBoxContainer/changelevel" to="." method="_on_changelevel_pressed"]
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/backtomainmenu" to="." method="_on_backtomainmenu_pressed"]
